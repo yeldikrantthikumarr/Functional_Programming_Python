@@ -1,6 +1,6 @@
 # A Better way of understanding functional programming with examples. The traditional functional programming is HASKELL.
 # Here ! in this code, trying to help you undestand about functional programming in Python. These are the answer for excercise files from Functional Programming wit Python
-
+# For more better understanding please read this book: Structure and Interpretation of Computer Programs- by H Abelson. Its freely available too
 
 import math
 
