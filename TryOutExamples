@@ -1,2 +1,132 @@
 # A Better way of understanding functional programming with examples. The traditional functional programming is HASKELL.
-# Here ! in this code, trying to help you undestand about functional programming in Python
+# Here ! in this code, trying to help you undestand about functional programming in Python. These are the answer for excercise files from Functional Programming wit Python
+
+
+import math
+
+def double(x):
+    return x * 2
+
+def minus_one(x):
+    return x - 1
+
+def squared(x):
+    return x * x
+
+function_list = [
+    squared,
+    double,
+    minus_one,
+    math.sqrt, # you can include python built-in functions eg: math.sqrt
+]
+
+my_number = 5
+
+for func in function_list:
+    my_number = func(my_number)
+
+print(my_number)
+**********************************************************************************************
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def combine_2_and_3(func):
+    return func(2, 3)
+print(combine_2_and_3(min))
+
+def combine_names(func):
+    return func('Shaun', 'Wassell')
+
+def append_with_space(str1, str2):
+    return f'{str1} {str2}'
+
+def get_government_form_notation(first, last):
+    return f'{last.upper()}, {first.upper()}'
+
+print(combine_names(get_government_form_notation))
+
+***************************************************************************************************
+def func1(): #create_printer
+    my_favorite_number = 42
+
+    def outPut(): #printer
+        print(f'My favorite number is {my_favorite_number}')
+
+    return outPut
+
+my_func = func1()
+my_func()
+
+def create_counter():
+    count = 0
+
+    def get_count():
+        return count
+
+    def increment():
+        nonlocal count
+        count += 1
+
+    return (get_count, increment)
+
+get_count, increment = create_counter()
+
+print(get_count())
+increment()
+increment()
+print(get_count())
+increment()
+increment()
+increment()
+print(get_count())
+
+***************************************************************************************************
+def divide(x, y):
+    return x / y
+
+def second_argument_isnt_zero(func):
+    def safe_version(*args):
+        if args[1] == 0:
+            print('Warning: second argument is zero')
+            return
+        return func(*args)
+
+    return safe_version
+
+divide_safe = second_argument_isnt_zero(divide)
+
+print(divide_safe(10, 2))
+
+***************************************************************************************************
+numbers_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+doubled_list = []
+for x in numbers_list:
+    doubled_list.append(x * 2)
+
+print(doubled_list)
+
+def double(x):
+    return x * 2
+
+doubled_list_functional = list(map(double, numbers_list))
+print(doubled_list_functional)
+_________________________________________***________________________________________________________
+
+numbers_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+even_numbers = []
+for x in numbers_list:
+    if (x % 2 == 0):
+        even_numbers.append(x)
+
+print(even_numbers)
+
+def is_even(x):
+    return x % 2 == 0
+
+even_numbers_functional = list(filter(is_even, numbers_list))
+print(even_numbers_functional)
